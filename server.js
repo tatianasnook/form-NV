@@ -10,6 +10,15 @@ mongoose.set("strictQuery", false)
 mongoose
 .connect(process.env.MONGODB_LINK)
 .then(() => console.log('WE WERE CONNECTED TO MONGO'))
+.catch((err) => console.log(err))
+
+const messageSchema = {
+  name: String,
+  email: String,
+  message: String
+}
+
+const Message = mongoose.model('MyMessages', messageSchema)
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + "/index.html")
