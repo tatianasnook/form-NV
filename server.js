@@ -12,6 +12,8 @@ mongoose.connect(process.env.MONGODB_LINK)
 
 app.use(routes)
 
+app.use(express.static('public'));
+
 app.listen(8000, () => {
   console.log('server is listening on PORT 8000')
 })
